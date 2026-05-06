@@ -2,6 +2,7 @@ const soma = require('./soma/soma.js');
 const subtracao = require('./subtracao/sub.js');
 const multiplicacao = require('./multiplicacao/multi.js');
 const divisao = require('./divisao/divisao.js');
+const porcentagem = require('./porcentagem/porcento.js');
 function calcular(operacao, a, b) {
     switch (operacao) {
         case 'soma':
@@ -12,6 +13,8 @@ function calcular(operacao, a, b) {
             return multiplicacao(a, b);
         case 'divisao':
             return divisao(a, b);
+        case 'porcentagem':
+            return porcentagem(a, b);
         default:
             throw new Error("Operação inválida.");
     }
@@ -20,7 +23,7 @@ const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
-readline.question('Digite a operação (soma, subtracao, multiplicacao, divisao): ', operacao => {
+readline.question('Digite a operação (soma, subtracao, multiplicacao, divisao, porcentagem): ', operacao => {
     readline.question('Digite o primeiro número: ', num1 => {
         readline.question('Digite o segundo número: ', num2 => {
             try {
